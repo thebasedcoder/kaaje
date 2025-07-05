@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <form action="/admin/login" method="post">
+    <form action="/login" method="post">
         <input type="text" name="username" placeholder="نام کاربری">
         <input type="password" name="password" placeholder="رمز عبور">
         <button type="submit">ورود</button>

@@ -2,50 +2,429 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پنل مدیریت</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --danger: #dc2626;
+            --danger-hover: #b91c1c;
+            --success: #10b981;
+            --success-hover: #059669;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-700: #374151;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2 {
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--gray-200);
+            padding-bottom: 0.75rem;
+        }
+        
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 0.625rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            background-color: white;
+            transition: border-color 0.2s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: var(--success-hover);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: var(--danger-hover);
+        }
+        
+        .btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 1rem;
+            border: 1px solid var(--gray-200);
+            text-align: right;
+        }
+        
+        th {
+            background-color: var(--gray-100);
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--gray-100);
+        }
+        
+        tr:hover {
+            background-color: rgba(79, 70, 229, 0.05);
+        }
+        
+        .item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 0.25rem;
+        }
+        
+        .editable {
+            border: 1px solid var(--gray-300);
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            background: white;
+        }
+        
+        .editable:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .actions-cell {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>پنل مدیریت</h1>
+    <div class="container">
+        <h1>پنل مدیریت منو</h1>
 
-    <h2>اضافه کردن آیتم جدید</h2>
-    <form action="/admin/add" method="post">
-        <input type="text" name="name" placeholder="نام آیتم">
-        <input type="text" name="description" placeholder="توضیحات">
-        <input type="text" name="picture" placeholder="لینک عکس">
-        <input type="number" name="price" placeholder="قیمت">
-        <input type="text" name="toppings" placeholder="تاپینگ‌ها">
-        <button type="submit">اضافه کردن</button>
-    </form>
-
-    <h2>تخفیف کلی</h2>
-    <form action="/admin/discount" method="post">
-        <input type="number" name="discount" placeholder="درصد تخفیف">
-        <button type="submit">اعمال تخفیف</button>
-    </form>
-
-    <h2>لیست آیتم‌ها</h2>
-    <table>
-        <tr>
-            <th>نام</th>
-            <th>توضیحات</th>
-            <th>قیمت</th>
-            <th>عملیات</th>
-        </tr>
-        {{range item := items}}
-        <tr>
-            <form action="/admin/edit/{{item.ID}}" method="post">
-                <td><input type="text" name="name" value="{{item.Name}}"></td>
-                <td><input type="text" name="description" value="{{item.Description}}"></td>
-                <td><input type="number" name="price" value="{{item.Price}}"></td>
-                <td>
-                    <input type="text" name="toppings" value="{{item.Toppings}}">
-                    <button type="submit">ویرایش</button>
-                    <a href="/admin/delete/{{item.ID}}">حذف</a>
-                </td>
+        <div class="card">
+            <h2>اضافه کردن آیتم جدید</h2>
+            <form action="/admin/add" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">نام آیتم</label>
+                    <input type="text" id="name" name="name" placeholder="نام آیتم" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">دسته بندی</label>
+                    <select id="category" name="category" required>
+                        <option value="">دسته بندی را انتخاب کنید</option>
+                        <option value="pizza">پیتزا</option>
+                        <option value="burger">برگر</option>
+                        <option value="sandwich">ساندویچ</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">توضیحات</label>
+                    <input type="text" id="description" name="description" placeholder="توضیحات">
+                </div>
+                
+                <div class="form-group">
+                    <label for="price">قیمت (تومان)</label>
+                    <input type="number" step="0.01" id="price" name="price" placeholder="قیمت" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="discount">درصد تخفیف</label>
+                    <input type="number" step="0.01" id="discount" name="discount" placeholder="درصد تخفیف (مثلا 15)">
+                </div>
+                
+                <div class="form-group">
+                    <label for="toppings">تاپینگ‌ها</label>
+                    <input type="text" id="toppings" name="toppings" placeholder="تاپینگ‌ها (با ویرگول جدا کنید)">
+                </div>
+                
+                <div class="form-group">
+                    <label for="picture">عکس آیتم</label>
+                    <input type="file" id="picture" name="picture" accept="image/*" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">اضافه کردن آیتم</button>
             </form>
-        </tr>
-        {{end}}
-    </table>
+        </div>
+
+        <div class="card">
+            <h2>لیست آیتم‌ها</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>عکس</th>
+                            <th>نام</th>
+                            <th>دسته</th>
+                            <th>توضیحات</th>
+                            <th>قیمت</th>
+                            <th>تخفیف</th>
+                            <th>تاپینگ</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{range index, item := items}}
+                        <tr data-id="{{item.ID}}">
+                            <td><img src="{{item.Picture}}" alt="{{item.Name}}" class="item-img"></td>
+                            
+                            <td>
+                                <span class="view-mode">{{item.Name}}</span>
+                                <input type="text" name="name" value="{{item.Name}}" class="edit-mode hidden editable" form="edit-form-{{index}}">
+                            </td>
+                            
+                            <td>
+                                <span class="view-mode">
+                                    {{if item.Category == "pizza"}}پیتزا{{end}}
+                                    {{if item.Category == "burger"}}برگر{{end}}
+                                    {{if item.Category == "sandwich"}}ساندویچ{{end}}
+                                </span>
+                                <select name="category" class="edit-mode hidden editable" form="edit-form-{{index}}">
+                                    <option value="pizza" {{if item.Category == "pizza"}}selected{{end}}>پیتزا</option>
+                                    <option value="burger" {{if item.Category == "burger"}}selected{{end}}>برگر</option>
+                                    <option value="sandwich" {{if item.Category == "sandwich"}}selected{{end}}>ساندویچ</option>
+                                </select>
+                            </td>
+                            
+                            <td>
+                                <span class="view-mode">{{item.Description}}</span>
+                                <input type="text" name="description" value="{{item.Description}}" class="edit-mode hidden editable" form="edit-form-{{index}}">
+                            </td>
+                            
+                            <td>
+                                <span class="view-mode">{{item.Price}}</span>
+                                <input type="number" step="0.01" name="price" value="{{item.Price}}" class="edit-mode hidden editable" form="edit-form-{{index}}">
+                            </td>
+                            
+                            <td>
+                                <span class="view-mode">{{item.Discount}}</span>
+                                <input type="number" step="0.01" name="discount" value="{{item.Discount}}" class="edit-mode hidden editable" form="edit-form-{{index}}">
+                            </td>
+                            
+                            <td>
+                                <span class="view-mode">{{item.Toppings}}</span>
+                                <input type="text" name="toppings" value="{{item.Toppings}}" class="edit-mode hidden editable" form="edit-form-{{index}}">
+                            </td>
+                            
+                            <td class="actions-cell">
+                                <button type="button" class="btn btn-primary btn-sm edit-btn" data-id="{{item.ID}}">ویرایش</button>
+                                
+                                <form id="edit-form-{{index}}" action="/admin/edit/{{item.ID}}" method="post" class="hidden">
+                                    <input type="hidden" name="id" value="{{item.ID}}">
+                                    <input type="hidden" name="creds" value="true">
+                                </form>
+                                
+                                <button type="button" class="btn btn-danger btn-sm delete-btn" data-id="{{item.ID}}">حذف</button>
+                            </td>
+                        </tr>
+                        {{end}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Edit/Save functionality
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const id = this.getAttribute('data-id');
+                    
+                    if (this.textContent === 'ویرایش') {
+                        // Switch to edit mode
+                        this.textContent = 'ذخیره';
+                        this.classList.remove('btn-primary');
+                        this.classList.add('btn-success');
+                        
+                        // Show edit fields and hide view fields
+                        row.querySelectorAll('.view-mode').forEach(el => el.classList.add('hidden'));
+                        row.querySelectorAll('.edit-mode').forEach(el => el.classList.remove('hidden'));
+                    } else {
+                        // Switch to view mode
+                        this.textContent = 'ویرایش';
+                        this.classList.remove('btn-success');
+                        this.classList.add('btn-primary');
+                        
+                        // Show view fields and hide edit fields
+                        row.querySelectorAll('.view-mode').forEach(el => el.classList.remove('hidden'));
+                        row.querySelectorAll('.edit-mode').forEach(el => el.classList.add('hidden'));
+                        
+                        // Submit the form
+                        const form = row.querySelector('form');
+                        if (form) {
+                            // Collect all editable values
+                            const name = row.querySelector('input[name="name"]').value;
+                            const category = row.querySelector('select[name="category"]').value;
+                            const description = row.querySelector('input[name="description"]').value;
+                            const price = row.querySelector('input[name="price"]').value;
+                            const discount = row.querySelector('input[name="discount"]').value;
+                            const toppings = row.querySelector('input[name="toppings"]').value;
+                            
+                            // Create a FormData object
+                            const formData = new FormData(form);
+                            formData.append('name', name);
+                            formData.append('category', category);
+                            formData.append('description', description);
+                            formData.append('price', price);
+                            formData.append('discount', discount);
+                            formData.append('toppings', toppings);
+                            
+                            // Send the request
+                            fetch(form.action, {
+                                method: 'POST',
+                                body: formData
+                            })
+                            .then(response => {
+                                if (response.ok) {
+                                    // Update the view fields with new values
+                                    row.querySelector('.view-mode:nth-child(1)').textContent = name| null; 
+                                    row.querySelector('.view-mode:nth-child(2)').textContent = 
+                                        category === 'pizza' ? 'پیتزا' : 
+                                        category === 'burger' ? 'برگر' : 'ساندویچ';
+                                    row.querySelector('.view-mode:nth-child(3)').textContent = description | null;
+                                    row.querySelector('.view-mode:nth-child(4)').textContent = price | null;
+                                    row.querySelector('.view-mode:nth-child(5)').textContent = discount | null;
+                                    row.querySelector('.view-mode:nth-child(6)').textContent = toppings | null;
+                                    
+                                    alert('تغییرات با موفقیت ذخیره شد');
+                                } else {
+                                    alert('خطا در ذخیره تغییرات');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('خطا در ارتباط با سرور');
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Delete functionality
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    if (confirm('آیا از حذف این آیتم مطمئن هستید؟')) {
+                        fetch(`/admin/delete/${id}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ creds: true })
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                this.closest('tr').remove();
+                                alert('آیتم با موفقیت حذف شد');
+                            } else {
+                                alert('خطا در حذف آیتم');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('خطا در ارتباط با سرور');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

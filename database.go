@@ -14,6 +14,7 @@ type MenuItem struct {
 	Price       float64
 	Toppings    string
 	Discount    float64
+	Category    string // <-- Add this field
 }
 
 func setupDB() (*sql.DB, error) {
@@ -22,7 +23,8 @@ func setupDB() (*sql.DB, error) {
 		return nil, err
 	}
 
-	statement, err := db.Prepare("CREATE TABLE IF NOT EXISTS menu (id INTEGER PRIMARY KEY, name TEXT, description TEXT, picture TEXT, price REAL, toppings TEXT, discount REAL)")
+	// The 'category TEXT' field has been added to the SQL statement.
+	statement, err := db.Prepare("CREATE TABLE IF NOT EXISTS menu (id INTEGER PRIMARY KEY, name TEXT, description TEXT, picture TEXT, price REAL, toppings TEXT, discount REAL, category TEXT)")
 	if err != nil {
 		return nil, err
 	}

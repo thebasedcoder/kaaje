@@ -1,0 +1,51 @@
+2025/07/05 20:14:49 Running on port 8080
+2025/07/05 20:15:15 Request: GET / from [::1]:55640
+2025/07/05 20:15:15 Request: GET /.well-known/appspecific/com.chrome.devtools.json from [::1]:55640
+2025/07/05 20:15:17 Request: GET / from [::1]:55640
+2025/07/05 20:15:17 Request: GET /.well-known/appspecific/com.chrome.devtools.json from [::1]:55640
+2025/07/05 20:15:17 Request: GET /static/1.avif from [::1]:55641
+2025/07/05 20:15:17 Request: GET /uploads/1751729365103327600-Screenshot 2024-07-11 020555.png from [::1]:55647
+2025/07/05 20:15:17 Request: GET /uploads/1751728387896558500-Screenshot 2024-10-10 155628.png from [::1]:55646
+2025/07/05 20:15:17 Request: GET /uploads/1751728110049205500-Screenshot 2024-08-01 121209.png from [::1]:55644
+2025/07/05 20:15:17 Request: GET /uploads/1751728158900800200-Screenshot 2024-09-15 221223.png from [::1]:55645
+2025/07/05 20:15:17 Request: GET /uploads/1751728817277102500-Screenshot 2024-05-23 181211.png from [::1]:55644
+2025/07/05 20:15:17 Request: GET /favicon.ico from [::1]:55644
+2025/07/05 20:15:17 Request: GET / from [::1]:55644
+2025/07/05 20:15:17 Request: GET /.well-known/appspecific/com.chrome.devtools.json from [::1]:55644
+2025/07/05 20:15:17 Request: GET /static/1.avif from [::1]:55646
+2025/07/05 20:15:17 Request: GET /uploads/1751728110049205500-Screenshot 2024-08-01 121209.png from [::1]:55647
+2025/07/05 20:15:17 Request: GET /uploads/1751728158900800200-Screenshot 2024-09-15 221223.png from [::1]:55645
+2025/07/05 20:15:17 Request: GET /uploads/1751729365103327600-Screenshot 2024-07-11 020555.png from [::1]:55640
+2025/07/05 20:15:17 Request: GET /uploads/1751728387896558500-Screenshot 2024-10-10 155628.png from [::1]:55641
+2025/07/05 20:15:17 Request: GET /uploads/1751728817277102500-Screenshot 2024-05-23 181211.png from [::1]:55647
+2025/07/05 20:15:19 Request: GET /favicon.ico from [::1]:55647
+2025/07/05 20:30:18 Running on port 8080
+2025/07/05 20:30:35 Request: GET / from [::1]:55920
+2025/07/05 20:30:35 Request: GET /static/1.avif from [::1]:55920
+2025/07/05 20:30:35 Request: GET /uploads/1751728110049205500-Screenshot 2024-08-01 121209.png from [::1]:55922
+2025/07/05 20:30:35 Request: GET /uploads/1751728158900800200-Screenshot 2024-09-15 221223.png from [::1]:55923
+2025/07/05 20:30:35 Request: GET /uploads/1751729365103327600-Screenshot 2024-07-11 020555.png from [::1]:55925
+2025/07/05 20:30:35 Request: GET /uploads/1751728387896558500-Screenshot 2024-10-10 155628.png from [::1]:55924
+2025/07/05 20:30:35 Request: GET /uploads/1751728817277102500-Screenshot 2024-05-23 181211.png from [::1]:55925
+2025/07/05 20:31:00 Request: GET /.well-known/appspecific/com.chrome.devtools.json from [::1]:55925
+2025/07/05 20:32:59 Request: GET /admin from [::1]:55925
+2025/07/05 20:32:59 Request: GET /.well-known/appspecific/com.chrome.devtools.json from [::1]:55925
+2025/07/05 20:33:21 Request: GET /logout from [::1]:55925
+2025/07/05 20:33:21 Request: GET /.well-known/appspecific/com.chrome.devtools.json from [::1]:55925
+2025/07/05 20:33:24 Request: GET /.well-known/appspecific/com.chrome.devtools.json from [::1]:55925
+2025/07/05 20:33:24 Request: GET /.well-known/appspecific/com.chrome.devtools.json from [::1]:55925
+2025/07/05 20:36:17 Request: GET /admin from [::1]:56094
+2025/07/05 20:36:17 Request: GET /login from [::1]:56094
+2025/07/05 20:36:17 Request: GET /static/style.css from [::1]:56094
+2025/07/05 20:36:17 Request: GET /.well-known/appspecific/com.chrome.devtools.json from [::1]:56094
+2025/07/05 20:36:27 Request: POST /login from [::1]:56094
+2025/07/05 20:36:27 Request: GET /admin from [::1]:56094
+2025/07/05 20:39:19 Request: GET / from [::1]:56094
+2025/07/05 20:39:19 Request: GET /static/1.avif from [::1]:56094
+2025/07/05 20:41:50 Running on port 8080
+2025/07/05 20:42:00 Request: GET / from [::1]:56147
+2025/07/05 20:42:00 Request: GET /uploads/1751728110049205500-Screenshot 2024-08-01 121209.png from [::1]:56147
+2025/07/05 20:42:00 Request: GET /uploads/1751728158900800200-Screenshot 2024-09-15 221223.png from [::1]:56149
+2025/07/05 20:42:00 Request: GET /uploads/1751728387896558500-Screenshot 2024-10-10 155628.png from [::1]:56150
+2025/07/05 20:42:00 Request: GET /uploads/1751729365103327600-Screenshot 2024-07-11 020555.png from [::1]:56151
+2025/07/05 20:42:00 Request: GET /uploads/1751728817277102500-Screenshot 2024-05-23 181211.png from [::1]:56152
