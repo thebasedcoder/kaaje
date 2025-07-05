@@ -189,6 +189,14 @@
         .hidden {
             display: none;
         }
+
+        .logout-button {
+            width: 80px;
+            height: 35px;
+            background-color: red;
+            color: white;
+            border: none
+        }
     </style>
 </head>
 <body>
@@ -317,6 +325,9 @@
                 </table>
             </div>
         </div>
+        <form action="/logout" method="post">
+            <button class="logout-button" type="submit">خروج</button>
+        </form>
     </div>
 
     <script>
