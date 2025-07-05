@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>پنل مدیریت</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>پنل مدیریت</h1>
+
+    <h2>اضافه کردن آیتم جدید</h2>
+    <form action="/admin/add" method="post">
+        <input type="text" name="name" placeholder="نام آیتم">
+        <input type="text" name="description" placeholder="توضیحات">
+        <input type="text" name="picture" placeholder="لینک عکس">
+        <input type="number" name="price" placeholder="قیمت">
+        <input type="text" name="toppings" placeholder="تاپینگ‌ها">
+        <button type="submit">اضافه کردن</button>
+    </form>
+
+    <h2>تخفیف کلی</h2>
+    <form action="/admin/discount" method="post">
+        <input type="number" name="discount" placeholder="درصد تخفیف">
+        <button type="submit">اعمال تخفیف</button>
+    </form>
+
+    <h2>لیست آیتم‌ها</h2>
+    <table>
+        <tr>
+            <th>نام</th>
+            <th>توضیحات</th>
+            <th>قیمت</th>
+            <th>عملیات</th>
+        </tr>
+        {{range item := items}}
+        <tr>
+            <form action="/admin/edit/{{item.ID}}" method="post">
+                <td><input type="text" name="name" value="{{item.Name}}"></td>
+                <td><input type="text" name="description" value="{{item.Description}}"></td>
+                <td><input type="number" name="price" value="{{item.Price}}"></td>
+                <td>
+                    <input type="text" name="toppings" value="{{item.Toppings}}">
+                    <button type="submit">ویرایش</button>
+                    <a href="/admin/delete/{{item.ID}}">حذف</a>
+                </td>
+            </form>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>

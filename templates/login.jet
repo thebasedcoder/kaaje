@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ورود به پنل مدیریت</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <form action="/admin/login" method="post">
+        <input type="text" name="username" placeholder="نام کاربری">
+        <input type="password" name="password" placeholder="رمز عبور">
+        <button type="submit">ورود</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>منوی رستوران</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>منو</h1>
+    <div class="menu">
+        {{range item := items}}
+        <div class="menu-item">
+            <img src="{{item.Picture}}" alt="{{item.Name}}">
+            <h2>{{item.Name}}</h2>
+            <p>{{item.Description}}</p>
+            <p>قیمت: {{item.Price}} تومان</p>
+            {{if item.Discount > 0}}
+            <p>تخفیف: {{item.Discount}}%</p>
+            {{end}}
+            {{if item.Toppings}}
+            <div class="toppings">
+                <strong>تاپینگ:</strong> {{item.Toppings}}
+            </div>
+            {{end}}
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
